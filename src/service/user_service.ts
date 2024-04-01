@@ -47,8 +47,8 @@ const loginService = async(payload:T_login)=>{
         role:user?.role,
         isDeleted:user?.isDeleted
     }
-    const accessToken = createToken(jwtPayload, config.access_token as string,'10d');
-    const refreshToken = createToken(jwtPayload, config.refresh_token as string,'20d');
+    const accessToken = createToken(jwtPayload, config.access_token as string,'1d');
+    const refreshToken = createToken(jwtPayload, config.refresh_token as string,'2d');
 
     return{
         user,
@@ -84,7 +84,7 @@ const refreshTokenService = async (token: string) => {
       isDeleted: user?.isDeleted,
     }
     const accessToken = jwt.sign(jwtPayload, config.access_token as string, {
-      expiresIn: '10d',
+      expiresIn: '1d',
     })
   
     return {
