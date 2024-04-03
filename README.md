@@ -29,7 +29,7 @@ This project is a task management application built using the MERN (MongoDB, Exp
 **Global Error Handling:** All errors are handled through a global error handler to ensure a smooth user experience.
 
 ## Backend
-
+- Jwt
 - Node.js
 - Express.js
 - MongoDB with Mongoose (ODM)
