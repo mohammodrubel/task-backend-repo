@@ -18,6 +18,10 @@ const bcrypt_1 = __importDefault(require("bcrypt"));
 const AppError_1 = __importDefault(require("../error/AppError"));
 const http_status_1 = __importDefault(require("http-status"));
 const userSchema = new mongoose_1.Schema({
+    name: {
+        type: String,
+        required: [true, 'Name is required'],
+    },
     email: {
         type: String,
         required: [true, 'Email is required'],
@@ -35,8 +39,9 @@ const userSchema = new mongoose_1.Schema({
     },
     role: {
         type: String,
-        enum: ['Admin', 'User', 'Modarator'],
-        required: true
+        enum: ['Admin', 'User'],
+        required: true,
+        default: 'User'
     }
 }, { timestamps: true });
 userSchema.pre('save', function (next) {

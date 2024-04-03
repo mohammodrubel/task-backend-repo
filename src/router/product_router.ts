@@ -18,6 +18,10 @@ router.put(
   '/:id',
   ProductController.updateProduct,
 )
+router.patch(
+  '/:id',
+  ProductController.approvedProduct,
+)
 
 router.delete(
   '/:id',

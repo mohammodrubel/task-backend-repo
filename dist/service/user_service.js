@@ -33,7 +33,7 @@ const getSingleService = (id) => __awaiter(void 0, void 0, void 0, function* () 
     return result;
 });
 const deleteSingleService = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield user_model_1.User.findByIdAndUpdate(id, { isDeleted: true });
+    const result = yield user_model_1.User.findByIdAndDelete(id, { isDeleted: true });
     return result;
 });
 const loginService = (payload) => __awaiter(void 0, void 0, void 0, function* () {
@@ -57,8 +57,8 @@ const loginService = (payload) => __awaiter(void 0, void 0, void 0, function* ()
         role: user === null || user === void 0 ? void 0 : user.role,
         isDeleted: user === null || user === void 0 ? void 0 : user.isDeleted
     };
-    const accessToken = (0, authUtils_1.createToken)(jwtPayload, config_1.default.access_token, '10d');
-    const refreshToken = (0, authUtils_1.createToken)(jwtPayload, config_1.default.refresh_token, '20d');
+    const accessToken = (0, authUtils_1.createToken)(jwtPayload, config_1.default.access_token, '1d');
+    const refreshToken = (0, authUtils_1.createToken)(jwtPayload, config_1.default.refresh_token, '2d');
     return {
         user,
         accessToken,
@@ -88,7 +88,7 @@ const refreshTokenService = (token) => __awaiter(void 0, void 0, void 0, functio
         isDeleted: user === null || user === void 0 ? void 0 : user.isDeleted,
     };
     const accessToken = jsonwebtoken_1.default.sign(jwtPayload, config_1.default.access_token, {
-        expiresIn: '10d',
+        expiresIn: '1d',
     });
     return {
         accessToken

@@ -42,10 +42,22 @@ const deleteProduct = catchAsync(async(req,res,next)=>{
         data:result
     })
 })
+const approvedProduct = catchAsync(async(req,res,next)=>{
+    const id = req?.params?.id
+    const data = req?.body
+    const result = await productService.approvedProductService(id,data)
+    sendResponce(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        messege:'Product Approved successfully',
+        data:result
+    })
+})
 
 export const ProductController = {
     createNewProduct,
     getAllProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    approvedProduct
 }

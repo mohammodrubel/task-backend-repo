@@ -7,7 +7,8 @@ import cookieParser from 'cookie-parser';
 
 app.use(express.json())
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://task-project-psi.vercel.app',
+  // origin: 'http://localhost:5173',
   credentials: true 
 }));
 app.use(cookieParser());
@@ -16,7 +17,7 @@ app.use(cookieParser());
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({
     status: 'success',
-    message: 'Welcome to chat application',
+    message: 'Welcome to chat Todo Application',
   })
 })
 

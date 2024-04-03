@@ -9,7 +9,7 @@ const getAllProductService = async (query: Record<string, unknown>) => {
   let searchTerm = ''
   let cloneQuery = { ...query }
   let sort = '-createdAt'
-  let limit = 8
+  let limit = 5
   let page = 1
   let skip = 0
   let fields = '-__v'
@@ -70,6 +70,13 @@ const updateProductService = async (
   const reuslt = await Product.findByIdAndUpdate(id, payload, { new: true })
   return reuslt
 }
+const approvedProductService = async (
+  id: string,
+  payload: Partial<ProductType>,
+) => {
+  const reuslt = await Product.findByIdAndUpdate(id, payload, { new: true })
+  return reuslt
+}
 const deleteProductService = async (id: string) => {
   const reuslt = await Product.findByIdAndDelete(id)
   return reuslt
@@ -80,4 +87,5 @@ export const productService = {
   getAllProductService,
   updateProductService,
   deleteProductService,
+  approvedProductService
 }

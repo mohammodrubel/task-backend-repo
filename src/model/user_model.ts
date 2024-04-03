@@ -5,6 +5,10 @@ import AppError from '../error/AppError';
 import httpStatus from 'http-status';
 
 const userSchema = new Schema<T_user>({
+    name: {
+        type: String,
+        required: [true, 'Name is required'],
+    },
     email: {
         type: String,
         required: [true, 'Email is required'],
@@ -22,7 +26,7 @@ const userSchema = new Schema<T_user>({
     },
     role: {
         type: String,
-        enum: ['Admin', 'User', 'Modarator'],
+        enum: ['Admin', 'User'],
         required: true,
         default:'User'
     }

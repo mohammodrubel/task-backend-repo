@@ -23,7 +23,7 @@ const getSingleService = async(id:string)=>{
     return result
 }
 const deleteSingleService = async(id:string)=>{
-    const result = await User.findByIdAndUpdate(id, { isDeleted: true });
+    const result = await User.findByIdAndDelete(id, { isDeleted: true });
     return result
 }
 const loginService = async(payload:T_login)=>{

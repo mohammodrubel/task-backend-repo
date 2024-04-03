@@ -52,7 +52,7 @@ const deleteUserController = (0, catchAsync_1.default)((req, res) => __awaiter(v
     (0, send_responce_1.default)(res, ({
         success: true,
         statusCode: http_status_1.default.OK,
-        messege: "showen Single User Successfully",
+        messege: "Delete Single User Successfully",
         data: result
     }));
 }));
@@ -63,7 +63,6 @@ const loginController = (0, catchAsync_1.default)((req, res) => __awaiter(void 0
         secure: config_1.default.node_env === 'production',
         httpOnly: true
     });
-    console.log(result);
     (0, send_responce_1.default)(res, ({
         success: true,
         statusCode: http_status_1.default.OK,
