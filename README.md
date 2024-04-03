@@ -30,6 +30,7 @@ This project is a task management application built using the MERN (MongoDB, Exp
 
 ## Backend
 
+- Node.js
 - Express.js
 - MongoDB with Mongoose (ODM)
 - TypeScript
