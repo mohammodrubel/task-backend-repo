@@ -12,13 +12,14 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
     origin: 'https://task-project-psi.vercel.app',
+    // origin: 'http://localhost:5173',
     credentials: true
 }));
 app.use((0, cookie_parser_1.default)());
 app.get('/', (req, res) => {
     res.status(200).json({
         status: 'success',
-        message: 'Welcome to chat application',
+        message: 'Welcome to chat Todo Application',
     });
 });
 app.use('/api/v1', globalRouter_1.default);
